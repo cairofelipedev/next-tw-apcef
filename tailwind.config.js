@@ -30,11 +30,12 @@ module.exports = {
       colors: {
         primary: colors.teal,
         gray: colors.neutral,
+        'blue-apcef': '#013589',
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            color: theme('colors.gray.700'),
+            color: theme('colors.red.700'),
             a: {
               color: theme('colors.primary.500'),
               '&:hover': {
