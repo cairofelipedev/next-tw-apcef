@@ -20,7 +20,7 @@ export default function Home({ posts }) {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div className="md:grid md:grid-cols-3">
+      <div className="container mx-auto md:grid md:grid-cols-3">
         <div className="divide-y divide-gray-200 dark:divide-gray-700">
           <div className="space-y-2 pt-2 pb-2 md:space-y-2">
             <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-3xl md:leading-14">
@@ -133,7 +133,7 @@ export default function Home({ posts }) {
           </Link>
         </div>
       )}
-      <div className="flex h-screen items-center justify-center bg-amber-50">
+      <div className="flex items-center justify-center">
         <div className="grid max-w-2xl grid-cols-6 gap-x-4 gap-y-1">
           <div className="col-span-full mb-3">
             <p className="text-xl text-gray-800"> Today's popular searches </p>
