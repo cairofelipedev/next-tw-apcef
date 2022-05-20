@@ -1,6 +1,7 @@
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
+import CarouselHome from '@/components/CarouselHome'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import formatDate from '@/lib/utils/formatDate'
@@ -20,6 +21,7 @@ export default function Home({ posts }) {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
+      <CarouselHome />
       <div className="container mx-auto md:grid md:grid-cols-3">
         <div className="divide-y divide-gray-200 dark:divide-gray-700">
           <div className="space-y-2 pt-2 pb-2 md:space-y-2">

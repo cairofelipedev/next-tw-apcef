@@ -1,6 +1,8 @@
 import '@/css/tailwind.css'
 import '@/css/prism.css'
 import 'katex/dist/katex.css'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 import '@fontsource/inter/variable-full.css'
 
