@@ -16,7 +16,7 @@ export default class CarouselDr extends Component {
     }
     return (
       <div>
-        <Slider {...settings}>
+        <Slider className="z-0" {...settings}>
           <div>
             <Image src="/static/images/Banner_2.png" alt="Vercel Logo" width={2000} height={640} />
           </div>

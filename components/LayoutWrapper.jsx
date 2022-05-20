@@ -10,8 +10,8 @@ import ThemeSwitch from './ThemeSwitch'
 const LayoutWrapper = ({ children }) => {
   return (
     <div className="flex h-screen flex-col justify-between">
-      <header className="flex items-center justify-between pt-4 md:block">
-        <div className="container mx-auto flex justify-between">
+      <header className="flex items-center justify-between py-10 md:block">
+        <div className="mx-auto flex max-w-7xl justify-between">
           <Link href="/" aria-label={siteMetadata.headerTitle}>
             <div className="flex items-center">
               <div className="mr-3">
@@ -56,7 +56,7 @@ const LayoutWrapper = ({ children }) => {
           </div>
         </div>
         <div className="flex items-center justify-between md:bg-blue-apcef">
-          <div className="container mx-auto hidden py-3 sm:block">
+          <div className="container mx-auto hidden max-w-7xl py-3 sm:block">
             {headerNavLinks.map((link) => (
               <Link
                 key={link.title}
@@ -66,6 +66,44 @@ const LayoutWrapper = ({ children }) => {
                 {link.title}
               </Link>
             ))}
+            <div className="group inline-block">
+              <button className="inline-flex items-center rounded py-2 px-4">
+                <span className="mr-1">Dropdown</span>
+                <svg
+                  className="h-4 w-4 fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                </svg>
+              </button>
+              <ul className="absolute z-10 hidden pt-1 group-hover:block">
+                <li className="">
+                  <a
+                    className="whitespace-no-wrap block rounded-t bg-white py-2 px-4 hover:bg-gray-400"
+                    href="#"
+                  >
+                    One
+                  </a>
+                </li>
+                <li className="">
+                  <a
+                    className="whitespace-no-wrap block bg-gray-200 py-2 px-4 hover:bg-gray-400"
+                    href="#"
+                  >
+                    Two
+                  </a>
+                </li>
+                <li className="">
+                  <a
+                    className="whitespace-no-wrap block rounded-b bg-gray-200 py-2 px-4 hover:bg-gray-400"
+                    href="#"
+                  >
+                    Three is the magic number
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
           <ThemeSwitch />
           <MobileNav />
