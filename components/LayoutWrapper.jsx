@@ -1,4 +1,5 @@
 import siteMetadata from '@/data/siteMetadata'
+import SocialIcon from '@/components/social-icons'
 import headerNavLinks from '@/data/headerNavLinks'
 import Image from 'next/image'
 import Link from './Link'
@@ -10,8 +11,21 @@ import ThemeSwitch from './ThemeSwitch'
 const LayoutWrapper = ({ children }) => {
   return (
     <div className="flex h-screen flex-col justify-between">
-      <header className="flex items-center justify-between py-10 md:block">
-        <div className="mx-auto flex max-w-7xl justify-between">
+      <header className="flex items-center justify-between md:block">
+        <div className="bg-orange-apcef">
+          <div className="mx-auto flex max-w-6xl justify-between">
+            <h1>Outras apcefs</h1>
+            <div className="mb-3 flex space-x-4">
+              <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size="6" />
+              <SocialIcon kind="github" href={siteMetadata.github} size="6" />
+              <SocialIcon kind="facebook" href={siteMetadata.facebook} size="6" />
+              <SocialIcon kind="youtube" href={siteMetadata.youtube} size="6" />
+              <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size="6" />
+              <SocialIcon kind="twitter" href={siteMetadata.twitter} size="6" />
+            </div>
+          </div>
+        </div>
+        <div className="mx-auto flex max-w-6xl justify-between">
           <Link href="/" aria-label={siteMetadata.headerTitle}>
             <div className="flex items-center">
               <div className="mr-3">
@@ -34,7 +48,7 @@ const LayoutWrapper = ({ children }) => {
           </Link>
           <div className="relative hidden max-w-lg md:block">
             <input
-              aria-label="Search articles"
+              aria-label="Pesquise no site"
               type="text"
               placeholder="Search articles"
               className="block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
@@ -56,7 +70,7 @@ const LayoutWrapper = ({ children }) => {
           </div>
         </div>
         <div className="flex items-center justify-between md:bg-blue-apcef">
-          <div className="container mx-auto hidden max-w-7xl py-3 sm:block">
+          <div className="container mx-auto hidden max-w-6xl py-3 sm:block">
             {headerNavLinks.map((link) => (
               <Link
                 key={link.title}
