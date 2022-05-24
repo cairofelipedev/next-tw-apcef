@@ -3,7 +3,6 @@ import SocialIcon from '@/components/social-icons'
 import headerNavLinks from '@/data/headerNavLinks'
 import Image from 'next/image'
 import Link from './Link'
-import SectionContainer from './SectionContainer'
 import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
@@ -12,22 +11,25 @@ const LayoutWrapper = ({ children }) => {
   return (
     <div className="flex h-screen flex-col justify-between">
       <header className="flex items-center justify-between md:block">
-        <div className="bg-orange-apcef">
+        <div className="hidden bg-orange-apcef pt-1 md:block ">
           <div className="mx-auto flex max-w-6xl justify-between">
-            <h1>Outras apcefs</h1>
-            <div className="mb-3 flex space-x-4">
-              <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size="6" />
-              <SocialIcon kind="github" href={siteMetadata.github} size="6" />
-              <SocialIcon kind="facebook" href={siteMetadata.facebook} size="6" />
-              <SocialIcon kind="youtube" href={siteMetadata.youtube} size="6" />
-              <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size="6" />
-              <SocialIcon kind="twitter" href={siteMetadata.twitter} size="6" />
+            <div className="flex justify-between">
+              <SocialIcon kind="brazil" href="#" size="5" />
+              <h1 className="text-sm text-white">Outras apcefs</h1>
+            </div>
+            <div className="mb-2 flex space-x-4">
+              <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size="4" />
+              <SocialIcon kind="youtube" href={siteMetadata.youtube} size="4" />
+              <SocialIcon kind="insta" href="#" size="4" />
+              <SocialIcon kind="whats" href="#" size="4" />
+              <SocialIcon kind="facebook" href={siteMetadata.facebook} size="4" />
+              <h1 className="text-sm font-bold text-white">Entrar</h1>
             </div>
           </div>
         </div>
-        <div className="mx-auto flex max-w-6xl justify-between">
+        <div className="flex max-w-6xl justify-between px-2 pt-4 md:mx-auto">
           <Link href="/" aria-label={siteMetadata.headerTitle}>
-            <div className="flex items-center">
+            <div className="mb-1 flex items-center">
               <div className="mr-3">
                 <Image
                   src="/static/favicons/logo.png"
@@ -38,7 +40,7 @@ const LayoutWrapper = ({ children }) => {
                 />
               </div>
               {typeof siteMetadata.headerTitle === 'string' ? (
-                <div className="h-6 text-2xl font-semibold text-blue-apcef dark:text-white">
+                <div className="mb-4 h-6 text-2xl font-semibold text-blue-apcef dark:text-white">
                   {siteMetadata.headerTitle}
                 </div>
               ) : (
@@ -50,7 +52,7 @@ const LayoutWrapper = ({ children }) => {
             <input
               aria-label="Pesquise no site"
               type="text"
-              placeholder="Search articles"
+              placeholder="Pesquise no site"
               className="block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
             />
             <svg
@@ -69,22 +71,13 @@ const LayoutWrapper = ({ children }) => {
             </svg>
           </div>
         </div>
-        <div className="flex items-center justify-between md:bg-blue-apcef">
+        <div className="flex items-center justify-between  md:border-b-4 md:border-b-orange-apcef md:bg-blue-apcef">
           <div className="container mx-auto hidden max-w-6xl py-3 sm:block">
-            {headerNavLinks.map((link) => (
-              <Link
-                key={link.title}
-                href={link.href}
-                className="p-1 font-medium uppercase text-white dark:text-gray-100 sm:p-4"
-              >
-                {link.title}
-              </Link>
-            ))}
             <div className="group inline-block">
               <button className="inline-flex items-center rounded py-2 px-4">
-                <span className="mr-1">Dropdown</span>
+                <span className="mr-1 text-white">Dropdown</span>
                 <svg
-                  className="h-4 w-4 fill-current"
+                  className="h-4 w-4 fill-current text-white"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                 >
@@ -102,7 +95,7 @@ const LayoutWrapper = ({ children }) => {
                 </li>
                 <li className="">
                   <a
-                    className="whitespace-no-wrap block bg-gray-200 py-2 px-4 hover:bg-gray-400"
+                    className="whitespace-no-wrap block bg-white py-2 px-4 hover:bg-gray-400"
                     href="#"
                   >
                     Two
@@ -110,7 +103,7 @@ const LayoutWrapper = ({ children }) => {
                 </li>
                 <li className="">
                   <a
-                    className="whitespace-no-wrap block rounded-b bg-gray-200 py-2 px-4 hover:bg-gray-400"
+                    className="whitespace-no-wrap block rounded-b bg-white py-2 px-4 hover:bg-gray-400"
                     href="#"
                   >
                     Three is the magic number
@@ -118,6 +111,15 @@ const LayoutWrapper = ({ children }) => {
                 </li>
               </ul>
             </div>
+            {headerNavLinks.map((link) => (
+              <Link
+                key={link.title}
+                href={link.href}
+                className="p-1 font-medium uppercase text-white dark:text-gray-100 sm:p-4"
+              >
+                {link.title}
+              </Link>
+            ))}
           </div>
           <ThemeSwitch />
           <MobileNav />
