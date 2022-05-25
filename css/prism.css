@@ -140,8 +140,8 @@
 }
 
 .slick-dots {
-  position: absolute;
-  top: 525px;
+  position: relative;
+  top: 95%;
 }
 
 .slick-dots.slick-thumb {

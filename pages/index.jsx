@@ -1,14 +1,10 @@
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
-import Tag from '@/components/Tag'
 import CarouselHome from '@/components/CarouselHome'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
-import Image from 'next/image'
 
 import NewsletterForm from '@/components/NewsletterForm'
-
-const MAX_DISPLAY = 5
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog')
@@ -123,17 +119,15 @@ export default function Home({ posts }) {
           </div>
         </div>
       </div>
-      {posts.length > MAX_DISPLAY && (
-        <div className="flex justify-end text-base font-medium leading-6">
-          <Link
-            href="/blog"
-            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-            aria-label="all posts"
-          >
-            All Posts &rarr;
-          </Link>
-        </div>
-      )}
+      <div className="flex justify-end text-base font-medium leading-6">
+        <Link
+          href="/blog"
+          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+          aria-label="all posts"
+        >
+          All Posts &rarr;
+        </Link>
+      </div>
       <div className="flex items-center justify-center">
         <div className="grid max-w-2xl grid-cols-6 gap-x-4 gap-y-1">
           <div className="col-span-full mb-3">

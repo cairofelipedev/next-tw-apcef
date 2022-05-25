@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Slider from 'react-slick'
-import Image from 'next/image'
+import styles from '@/css/main.module.scss'
 
 export default class CarouselHome extends Component {
   render() {
@@ -21,12 +21,8 @@ export default class CarouselHome extends Component {
     return (
       <div>
         <Slider className="z-0" {...settings}>
-          <div>
-            <Image src="/static/images/Banner_2.png" alt="Vercel Logo" width={2000} height={750} />
-          </div>
-          <div>
-            <Image src="/static/images/Banner_2.png" alt="Vercel Logo" width={2000} height={750} />
-          </div>
+          <img className={styles.imgSlider} src="/static/images/Banner_2.png" alt="Vercel Logo" />
+          <img className={styles.imgSlider} src="/static/images/Banner_2.png" alt="Vercel Logo" />
         </Slider>
       </div>
     )
