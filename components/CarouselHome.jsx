@@ -1,30 +1,35 @@
-import React, { Component } from 'react'
-import Slider from 'react-slick'
-import styles from '@/css/main.module.scss'
+import React, { useRef, useState } from 'react'
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react'
+import Image from 'next/image'
 
-export default class CarouselHome extends Component {
-  render() {
-    const settings = {
-      className: 'center',
-      infinite: true,
-      speed: 500,
-      dots: true,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      arrows: false,
-      customPaging: function (i) {
-        return <div className="dot"></div>
-      },
-      dotsClass: 'slick-dots slick-thumb',
-    }
-    return (
-      <div>
-        <Slider className="z-0" {...settings}>
-          <img className={styles.imgSlider} src="/static/images/Banner_2.png" alt="Vercel Logo" />
-          <img className={styles.imgSlider} src="/static/images/Banner_2.png" alt="Vercel Logo" />
-        </Slider>
-      </div>
-    )
-  }
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/pagination'
+
+// import required modules
+import { Pagination } from 'swiper'
+
+export default function App() {
+  return (
+    <>
+      <Swiper
+        pagination={{
+          dynamicBullets: true,
+        }}
+        modules={[Pagination]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <Image layout="fill" src="/static/images/Banner_2.jpg" alt="Vercel Logo" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image layout="fill" src="/static/images/Banner_2.jpg" alt="Vercel Logo" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image layout="fill" src="/static/images/Banner_2.png" alt="Vercel Logo" />
+        </SwiperSlide>
+      </Swiper>
+    </>
+  )
 }

@@ -32,6 +32,7 @@ module.exports = {
         gray: colors.neutral,
         'blue-apcef': '#013589',
         'orange-apcef': '#E96708',
+        'red-apcef': '#ED1B24',
       },
       typography: (theme) => ({
         DEFAULT: {

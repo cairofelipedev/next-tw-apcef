@@ -139,34 +139,20 @@
   display: inline;
 }
 
-.slick-dots {
-  position: relative;
-  top: 95%;
-}
-
-.slick-dots.slick-thumb {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.slick-dots.slick-thumb li {
-  width: 6px;
-  height: 6px;
-  margin: 0 3px;
-  border-radius: 999px;
-  transition: all 0.5s ease-in-out;
-  will-change: width;
-  background-color: black;
-}
-
-.slick-dots.slick-thumb li.slick-active {
-  background-color: #013589;
-  width: 24px;
-}
-
-@media only screen and (max-width: 600px) {
-  .image-container {
-    display: none !important;
+@media only screen and (min-width: 768px) {
+  .swiper {
+    width: 100%;
+    height: 55%;
   }
+}
+
+@media only screen and (max-width: 767px) {
+  .swiper {
+    width: 100%;
+    height: 10%;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #e96708 !important;
 }
