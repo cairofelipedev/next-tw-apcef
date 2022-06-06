@@ -54,7 +54,7 @@ const LayoutWrapper = ({ children }) => {
                 type="text"
                 className="block w-full rounded-md border border-white bg-orange-apcef font-bold text-white dark:border-gray-800"
               >
-                ASSOCIA-SE
+                ASSOCIE-SE
               </button>
             </div>
             <div className="relative hidden max-w-lg sm:block">
@@ -157,6 +157,50 @@ const LayoutWrapper = ({ children }) => {
                 </li>
               </ul>
             </div>
+            <div className="group inline-block">
+              <button className="inline-flex items-center rounded py-2 px-4">
+                <span className="mr-1 text-white">ESPORTE</span>
+                <svg
+                  className="h-4 w-4 fill-current text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                </svg>
+              </button>
+              <ul className="absolute z-10 hidden rounded bg-white pt-1 shadow-md shadow-gray-300 group-hover:block dark:bg-gray-800">
+                <li>
+                  <button className="inline-flex items-center rounded py-2 px-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12"
+                      height="12"
+                      fill="#E96708"
+                      className="bi bi-chevron-right font-bold"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                      />
+                    </svg>
+                    <h1 className="ml-2 mr-5 text-sm">TODAS AS MODALIDADES</h1>
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <Link
+              href="#"
+              className="p-1 font-medium uppercase text-white dark:text-gray-100 sm:p-4"
+            >
+              CONHEÇA NOSSAS SEDES
+            </Link>
+            <Link
+              href="#"
+              className="p-1 font-medium uppercase text-white dark:text-gray-100 sm:p-4"
+            >
+              NOTÍCIAS
+            </Link>
           </div>
           <ThemeSwitch />
           <MobileNav />
