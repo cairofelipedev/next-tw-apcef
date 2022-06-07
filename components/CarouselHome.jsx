@@ -10,7 +10,7 @@ import 'swiper/css/pagination'
 // import required modules
 import { Pagination } from 'swiper'
 
-export default function App() {
+export default function CarouselHome() {
   return (
     <>
       <Swiper

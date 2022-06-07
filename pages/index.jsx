@@ -6,6 +6,7 @@ import { getAllFilesFrontMatter } from '@/lib/mdx'
 
 import NewsletterForm from '@/components/NewsletterForm'
 import Image from 'next/image'
+import CarouselGalery from '@/components/CarouselGallery'
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog')
@@ -126,6 +127,7 @@ export default function Home({ posts }) {
           </div>
         </div>
       </div>
+      <CarouselGalery />
       <div className="mx-auto max-w-6xl px-2 pt-4 md:grid md:grid-cols-3">
         <div className="col-span-2 divide-y divide-gray-200 dark:divide-gray-700">
           <div className="space-y-2 p-2 pb-2 md:space-y-2">
