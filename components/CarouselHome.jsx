@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 import Image from 'next/image'
+import style from '@/css/CarouselHome.module.css'
 
 // Import Swiper styles
 import 'swiper/css'
@@ -18,7 +19,7 @@ export default function CarouselHome() {
           dynamicBullets: true,
         }}
         modules={[Pagination]}
-        className="mySwiper"
+        className={style.mySwiper}
       >
         <SwiperSlide>
           <Image layout="fill" src="/static/images/Banner_2.jpg" alt="Vercel Logo" />
