@@ -21,28 +21,28 @@ export default function Home({ posts }) {
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <CarouselHome />
-      <div className="mx-auto max-w-6xl px-2 pt-4 md:grid md:grid-cols-3">
+      <div className="mx-auto max-w-7xl px-2 pt-4 md:grid md:grid-cols-3">
         <div className="col-span-2">
           <div className="space-y-2 p-2 pb-2 md:space-y-2">
             <h1 className="text-center text-3xl font-extrabold leading-9 tracking-tight text-blue-apcef dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-left md:text-3xl md:leading-14">
               Notícias APCEF/PI
             </h1>
-            <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
+            <p className="text-lg leading-7 text-gray-500 dark:text-gray-400 sm:text-center md:text-left">
               Acompanhe as notícias mais atualizadas de nossa APCEF
             </p>
           </div>
 
           <section className="body-font">
-            <div className="container mx-auto px-5 py-10">
+            <div className="container mx-auto px-5 pt-4">
               <CarouselNews />
             </div>
           </section>
-          <div className="space-y-2 p-2 pb-2 md:space-y-2">
+          <div className="space-y-2 p-2 pb-2 pt-6 md:space-y-2">
             <h1 className="text-center text-3xl font-extrabold leading-9 tracking-tight text-blue-apcef dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-left md:text-3xl md:leading-14">
               Notícias FENAE
             </h1>
-            <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-              Acompanhe as notícias mais atualizadas de nossa Federação
+            <p className="text-lg leading-7 text-gray-500 dark:text-gray-400 sm:text-center md:text-left">
+              Acompanhe as notícias mais atualizadas da FENAE
             </p>
           </div>
           <section className="body-font">
@@ -138,6 +138,40 @@ export default function Home({ posts }) {
             </h1>
           </div>
           <CarouselGalery />
+        </div>
+        <div className="mx-auto w-full max-w-lg rounded-lg bg-white px-10 py-8 shadow-xl md:ml-8">
+          <div className="mx-auto max-w-md space-y-6" />
+          <form action="" />
+          <h2 className="text-2xl font-bold">Notícias On-line</h2>
+          <p className="my-4 opacity-70">
+            Receba informações da APCEF/PI pelo WhatsApp. É só cadastrar seu número com DDD.
+          </p>
+          <label className="text-sm font-bold uppercase opacity-70">Nome Completo</label>
+          <input
+            type="text"
+            className="mt-2 mb-4 w-full rounded border-2 border-slate-200 bg-slate-200 p-3 focus:border-slate-600 focus:outline-none"
+          />
+          <label className="text-sm font-bold uppercase opacity-70">WhatsApp</label>
+          <input type="text" className="mt-2 mb-4 w-full rounded bg-slate-200 p-3" />
+          <label className="text-sm font-bold uppercase opacity-70">Tipo de associado</label>
+          <select className="mt-2 mb-4 w-full rounded border-2 border-slate-200 bg-slate-200 p-3 focus:border-slate-600 focus:outline-none">
+            <option value="">Contribuinte</option>
+            <option value="">Empregado Caixa</option>
+          </select>
+          <div className="my-2 font-medium opacity-70">
+            <input type="checkbox" />
+            Receber informações de ações para o pessoal da ativa
+          </div>
+          <div className="my-2 font-medium opacity-70">
+            <input type="checkbox" />
+            Receber informações de atividades para aposentados
+          </div>
+          <input
+            type="submit"
+            className="my-2 cursor-pointer rounded bg-orange-apcef py-3 px-6 font-medium  text-white duration-300 ease-in-out hover:bg-blue-apcef"
+            value="Enviar"
+          />
+          <form />
         </div>
       </div>
       <div className="mx-auto max-w-6xl divide-y divide-gray-200 dark:divide-gray-700">

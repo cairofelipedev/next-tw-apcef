@@ -14,10 +14,22 @@ export default function CarouselNews2() {
   return (
     <>
       <Swiper
-        slidesPerView={3}
-        spaceBetween={20}
         pagination={{
           clickable: true,
+        }}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
         }}
         modules={[Pagination]}
         className="mySwiper"

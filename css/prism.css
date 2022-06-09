@@ -142,3 +142,7 @@
 .swiper-slide-thumb-active {
   opacity: 1 !important;
 }
+
+.swiper-pagination-bullet-active {
+  background-color: #e96708 !important;
+}
