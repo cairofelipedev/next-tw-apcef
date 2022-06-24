@@ -9,14 +9,9 @@ import Image from 'next/image'
 import CarouselGalery from '@/components/CarouselGallery'
 import CarouselNews from '@/components/CarouselNews'
 import CarouselNews2 from '@/components/CarouselNews2'
+import { API_URL } from '@/config/index'
 
-export async function getStaticProps() {
-  const posts = await getAllFilesFrontMatter('blog')
-
-  return { props: { posts } }
-}
-
-export default function Home({ posts }) {
+export default function Home({ news }) {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
@@ -352,6 +347,18 @@ export default function Home({ posts }) {
           </p>
         </div>
       </footer>
+      {news.map((item) => (
+        <h1 key={item.name}>{item.name}</h1>
+      ))}
     </>
   )
+}
+
+export async function getStaticProps() {
+  const res = await fetch(`${API_URL}/api/news`)
+  const news = await res.json()
+  return {
+    props: { news },
+    revalidate: 1,
+  }
 }
