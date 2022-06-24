@@ -26,6 +26,15 @@ export default function CarouselGalery() {
       >
         <SwiperSlide>
           <img src="/static/images/picos_bar.png" width="100%" />
+          <div className="absolute top-0 left-0 w-1/2 bg-blue-apcef">
+            <p className="px-4 py-2 text-xs text-white md:text-base">
+              Piscinas adulto e infantil,Parque infantil com playground, Churrasqueiras
+              individualizadas, Mesa de sinuca, Tv por assinatura, Estacionamento.
+            </p>
+            <p className="px-4 py-2 text-xs text-white md:text-base ">
+              Localização: Município de Sussuapara
+            </p>
+          </div>
         </SwiperSlide>
         <SwiperSlide>
           <img src="/static/images/parnaiba.png" width="100%" />
