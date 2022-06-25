@@ -2,9 +2,6 @@ import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import CarouselHome from '@/components/CarouselHome'
 import siteMetadata from '@/data/siteMetadata'
-import { getAllFilesFrontMatter } from '@/lib/mdx'
-
-import NewsletterForm from '@/components/NewsletterForm'
 import Image from 'next/image'
 import CarouselGalery from '@/components/CarouselGallery'
 import CarouselNews from '@/components/CarouselNews'
@@ -381,9 +378,7 @@ export default function Home({ news }) {
           </p>
         </div>
       </footer>
-      {news.map((item) => (
-        <h1 key={item.name}>{item.name}</h1>
-      ))}
+      {news.length === 0 && <h3>No news</h3>}
     </>
   )
 }
