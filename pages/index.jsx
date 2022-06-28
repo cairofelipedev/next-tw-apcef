@@ -1,18 +1,34 @@
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
-import CarouselHome from '@/components/CarouselHome'
 import siteMetadata from '@/data/siteMetadata'
 import Image from 'next/image'
 import CarouselGalery from '@/components/CarouselGallery'
-import CarouselNews from '@/components/CarouselNews'
 import CarouselNews2 from '@/components/CarouselNews2'
 import { API_URL } from '@/config/index'
-
-export default function Home({ news }) {
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import style from '@/css/CarouselHome.module.css'
+import { Pagination } from 'swiper'
+import BannersItem from '@/components/BannersItem'
+import BlogItem from '@/components/BlogItem'
+export default function Home({ banners, news }) {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <CarouselHome />
+      <Swiper
+        pagination={{
+          dynamicBullets: true,
+        }}
+        modules={[Pagination]}
+        className={style.mySwiper}
+      >
+        {banners.map((item) => (
+          <SwiperSlide key={item.id}>
+            <BannersItem banners={item} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
       <div className="mx-auto max-w-7xl px-2 pt-4 md:grid md:grid-cols-3">
         <div className="col-span-2">
           <div className="space-y-2 p-2 pb-2 md:space-y-2">
@@ -26,7 +42,33 @@ export default function Home({ news }) {
 
           <section className="body-font">
             <div className="container mx-auto px-5 pt-4">
-              <CarouselNews />
+              <Swiper
+                pagination={{
+                  clickable: true,
+                }}
+                breakpoints={{
+                  640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                  768: {
+                    slidesPerView: 2,
+                    spaceBetween: 40,
+                  },
+                  1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                  },
+                }}
+                modules={[Pagination]}
+                className="mySwiper"
+              >
+                {news.map((item) => (
+                  <SwiperSlide key={item.id}>
+                    <BlogItem news={item} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
           </section>
           <div className="space-y-2 p-2 pb-2 pt-6 md:space-y-2">
@@ -378,16 +420,17 @@ export default function Home({ news }) {
           </p>
         </div>
       </footer>
-      {news.length === 0 && <h3>No news</h3>}
     </>
   )
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${API_URL}/api/news`)
-  const news = await res.json()
+  const res = await fetch(`${API_URL}/api/banners`)
+  const banners = await res.json()
+  const res2 = await fetch(`${API_URL}/api/news`)
+  const news = await res2.json()
   return {
-    props: { news },
+    props: { banners, news },
     revalidate: 1,
   }
 }

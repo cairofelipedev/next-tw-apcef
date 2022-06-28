@@ -1,0 +1,20 @@
+{
+  "banners": [
+    {
+      "id": "1",
+      "name": "Banner 1",
+      "date": "June 09, 2021",
+      "time": "10:00 PM EST",
+      "detail": "Banner para demonstração",
+      "image": "/images/banners/Banner_2.jpg"
+    },
+    {
+      "id": "2",
+      "name": "Banner 2",
+      "date": "June 2, 2021",
+      "time": "8:00 PM EST",
+      "detail": "Banner 2 de demonstração",
+      "image": "/images/banners/Banner_2.jpg"
+    }
+  ]
+}
