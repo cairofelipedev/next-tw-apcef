@@ -11,7 +11,7 @@ import 'swiper/css/pagination'
 import style from '@/css/CarouselHome.module.css'
 import { Pagination } from 'swiper'
 import BannersItem from '@/components/BannersItem'
-import BlogItem from '@/components/BlogItem'
+import HomeBlogItem from '@/components/HomeBlogItem'
 export default function Home({ banners, news }) {
   return (
     <>
@@ -65,10 +65,28 @@ export default function Home({ banners, news }) {
               >
                 {news.map((item) => (
                   <SwiperSlide key={item.id}>
-                    <BlogItem news={item} />
+                    <HomeBlogItem news={item} />
                   </SwiperSlide>
                 ))}
               </Swiper>
+              <Link href="/blog">
+                <a className="flex items-center font-extrabold text-blue-apcef">
+                  Mais Notícias
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="#000000"
+                    className="bi bi-chevron-right font-bold"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                    />
+                  </svg>
+                </a>
+              </Link>
             </div>
           </section>
           <div className="space-y-2 p-2 pb-2 pt-6 md:space-y-2">
@@ -427,10 +445,10 @@ export default function Home({ banners, news }) {
 export async function getStaticProps() {
   const res = await fetch(`${API_URL}/api/banners`)
   const banners = await res.json()
-  const res2 = await fetch(`${API_URL}/api/news`)
+  const res2 = await fetch(`${API_URL}/api/blog`)
   const news = await res2.json()
   return {
-    props: { banners, news },
+    props: { banners, news: news.slice(0, 5) },
     revalidate: 1,
   }
 }
