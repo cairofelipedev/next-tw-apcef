@@ -2,7 +2,6 @@ import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
 import Image from 'next/image'
 import Link from './Link'
-import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 
@@ -75,7 +74,7 @@ const LayoutWrapper = ({ children }) => {
         <div className="flex items-center justify-between sm:bg-blue-apcef">
           <div className="container mx-auto hidden max-w-6xl py-3 sm:block">
             <Link
-              href="#"
+              href="/"
               className="p-1 font-medium uppercase text-white dark:text-gray-100 sm:p-4"
             >
               HOME
@@ -187,7 +186,7 @@ const LayoutWrapper = ({ children }) => {
               CONHEÇA NOSSAS SEDES
             </Link>
             <Link
-              href="#"
+              href="/blog"
               className="p-1 font-medium uppercase text-white dark:text-gray-100 sm:p-4"
             >
               NOTÍCIAS

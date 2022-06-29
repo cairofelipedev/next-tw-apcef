@@ -1,6 +1,7 @@
 import { PageSEO } from '@/components/SEO'
 import BlogItem from '@/components/BlogItem'
 import { API_URL } from '@/config/index'
+import Footer from '@/components/Footer'
 export default function News({ news }) {
   return (
     <>
@@ -15,6 +16,7 @@ export default function News({ news }) {
           </div>
         ))}
       </div>
+      <Footer />
     </>
   )
 }
