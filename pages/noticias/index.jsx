@@ -22,7 +22,7 @@ export default function News({ news }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${API_URL}/api/blog`)
+  const res = await fetch(`${API_URL}/api/news`)
   const news = await res.json()
   return {
     props: { news },

@@ -14,13 +14,14 @@ const LayoutWrapper = ({ children }) => {
             <div className="flex justify-between">
               <SocialIcon kind="brazil" href="#" size="5" />
               <h1 className="text-sm text-white">Outras apcefs</h1>
+              <h1 className="ml-2 border-x-white text-sm text-white">| FENAE |</h1>
+              <h1 className="ml-2 text-sm text-white">Inscrições</h1>
             </div>
             <div className="mb-2 flex space-x-4">
-              <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size="4" />
-              <SocialIcon kind="youtube" href={siteMetadata.youtube} size="4" />
-              <SocialIcon kind="insta" href="#" size="4" />
-              <SocialIcon kind="whats" href="#" size="4" />
-              <SocialIcon kind="facebook" href={siteMetadata.facebook} size="4" />
+              <SocialIcon kind="youtube" href={siteMetadata.youtube} size="5" />
+              <SocialIcon kind="insta" href="#" size="5" />
+              <SocialIcon kind="whats" href="#" size="5" />
+              <SocialIcon kind="facebook" href={siteMetadata.facebook} size="5" />
               <h1 className="text-sm font-bold text-white">Entrar</h1>
             </div>
           </div>

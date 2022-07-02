@@ -306,7 +306,7 @@ export default function Home({ banners, news }) {
 export async function getStaticProps() {
   const res = await fetch(`${API_URL}/api/banners`)
   const banners = await res.json()
-  const res2 = await fetch(`${API_URL}/api/blog`)
+  const res2 = await fetch(`${API_URL}/api/news`)
   const news = await res2.json()
   return {
     props: { banners, news: news.slice(0, 5) },

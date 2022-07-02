@@ -13,7 +13,7 @@ export default function HomeBlogItem({ news }) {
         </h2>
         <h1 className="title-font mb-3 text-lg font-medium">{news.name}</h1>
         <div className="flex flex-wrap items-center ">
-          <Link href={`/news/${news.slug}`}>
+          <Link href={`/blog/${news.slug}`}>
             <button className="shadow-cla-blue rounded-lg bg-blue-apcef px-4 py-1 text-white drop-shadow-md hover:scale-105">
               Leia mais
             </button>
