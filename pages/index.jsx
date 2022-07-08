@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
@@ -8,13 +9,19 @@ import { API_URL } from '@/config/index'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
+import 'swiper/css/free-mode'
+import 'swiper/css/navigation'
+import 'swiper/css/thumbs'
 import style from '@/css/CarouselHome.module.css'
-import { Pagination } from 'swiper'
+import { Pagination, FreeMode, Navigation, Thumbs } from 'swiper'
 import BannersItem from '@/components/BannersItem'
 import HomeBlogItem from '@/components/HomeBlogItem'
 import Footer from '@/components/Footer'
 import SocialIcon from '@/components/social-icons'
-export default function Home({ banners, news }) {
+import FotoItem from '@/components/FotoItem'
+import SedeTheItem from '@/components/SedeTheItem'
+export default function Home({ banners, news, fotos, sedethe }) {
+  const [thumbsSwiper, setThumbsSwiper] = useState(null)
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
@@ -183,7 +190,35 @@ export default function Home({ banners, news }) {
               CONHEÇA NOSSA SEDE
             </h1>
           </div>
-          <CarouselGalery />
+          <Swiper
+            loop={true}
+            spaceBetween={10}
+            thumbs={{ swiper: thumbsSwiper }}
+            modules={[FreeMode, Thumbs]}
+            className={style.mySwiper2}
+          >
+            {sedethe.map((item) => (
+              <SwiperSlide key={item.id}>
+                <SedeTheItem sedethe={item} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <Swiper
+            onSwiper={setThumbsSwiper}
+            loop={true}
+            spaceBetween={10}
+            slidesPerView={4}
+            freeMode={true}
+            watchSlidesProgress={true}
+            modules={[FreeMode, Navigation, Thumbs]}
+            className={style.mySwiper}
+          >
+            {sedethe.map((item) => (
+              <SwiperSlide key={item.id}>
+                <SedeTheItem sedethe={item} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
         <div className="mx-auto w-full max-w-lg rounded-lg bg-white px-10 py-8 shadow-xl md:ml-8">
           <div className="mx-auto max-w-md space-y-6" />
@@ -220,7 +255,7 @@ export default function Home({ banners, news }) {
           <form />
         </div>
       </div>
-      <div className="mx-auto max-w-6xl divide-y divide-gray-200 dark:divide-gray-700">
+      <div className="mx-auto max-w-7xl divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 p-2 pb-2 md:space-y-2">
           <h1 className="text-center text-3xl font-extrabold leading-9 tracking-tight text-blue-apcef  dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-left md:text-3xl md:leading-14">
             GALERIA DE FOTOS
@@ -231,60 +266,11 @@ export default function Home({ banners, news }) {
             <div className="-m-4 flex flex-wrap">
               <div className="p-1">
                 <div className="grid grid-cols-6 gap-x-4 gap-y-1">
-                  <div className="col-span-2">
-                    <a href="">
-                      <img src="/static/images/cirancas.jpg" className="rounded-xl brightness-75" />
-                    </a>
-                    <p className="-translate-y-6 translate-x-3 text-xs font-semibold text-white sm:-translate-y-8 sm:text-base">
-                      {' '}
-                      Dia das Crianças e do Saci{' '}
-                    </p>
-                  </div>
-                  <div className="col-span-2">
-                    <a href="">
-                      <img src="/static/images/volei.jpg" className="rounded-xl brightness-75" />
-                    </a>
-                    <p className="-translate-y-6 translate-x-3 text-xs font-semibold text-white sm:-translate-y-8 sm:text-base">
-                      {' '}
-                      1ª Copa de Voleibol masculino{' '}
-                    </p>
-                  </div>
-                  <div className="col-span-2">
-                    <a href="">
-                      <img src="/static/images/cirancas.jpg" className="rounded-xl brightness-75" />
-                    </a>
-                    <p className="-translate-y-6 translate-x-3 text-xs font-semibold text-white sm:-translate-y-8 sm:text-base">
-                      {' '}
-                      Dia das Crianças e do Saci{' '}
-                    </p>
-                  </div>
-                  <div className="col-span-2">
-                    <a href="">
-                      <img src="/static/images/volei.jpg" className="rounded-xl brightness-75" />
-                    </a>
-                    <p className="-translate-y-6 translate-x-3 text-xs font-semibold text-white sm:-translate-y-8 sm:text-base">
-                      {' '}
-                      1ª Copa de Voleibol masculino{' '}
-                    </p>
-                  </div>
-                  <div className="col-span-2">
-                    <a href="">
-                      <img src="/static/images/cirancas.jpg" className="rounded-xl brightness-75" />
-                    </a>
-                    <p className="-translate-y-6 translate-x-3 text-xs font-semibold text-white sm:-translate-y-8 sm:text-base">
-                      {' '}
-                      Dia das Crianças e do Saci{' '}
-                    </p>
-                  </div>
-                  <div className="col-span-2">
-                    <a href="">
-                      <img src="/static/images/volei.jpg" className="rounded-xl brightness-75" />
-                    </a>
-                    <p className="-translate-y-6 translate-x-3 text-xs font-semibold text-white sm:-translate-y-8 sm:text-base">
-                      {' '}
-                      1ª Copa e Voleibol masculino{' '}
-                    </p>
-                  </div>
+                  {fotos.map((item) => (
+                    <div key={item.id}>
+                      <FotoItem fotos={item} />
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -299,10 +285,18 @@ export default function Home({ banners, news }) {
 export async function getStaticProps() {
   const res = await fetch(`${API_URL}/banners`)
   const banners = await res.json()
+
   const res2 = await fetch(`${API_URL}/noticias`)
   const news = await res2.json()
+
+  const res3 = await fetch(`${API_URL}/fotos`)
+  const fotos = await res3.json()
+
+  const res4 = await fetch(`${API_URL}/subsedes?slug=teresina`)
+  const sedethe = await res4.json()
+
   return {
-    props: { banners, news: news.slice(0, 5) },
+    props: { banners, news: news.slice(0, 5), fotos, sedethe },
     revalidate: 1,
   }
 }
