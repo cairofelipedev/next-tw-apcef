@@ -1,4 +1,5 @@
 import Mail from './mail.svg'
+import Calendar from './calendar.svg'
 import Github from './github.svg'
 import Facebook from './facebook.svg'
 import Youtube from './youtube.svg'
@@ -22,6 +23,7 @@ const components = {
   whats: Whats,
   insta: Insta,
   in: In,
+  calendar: Calendar,
 }
 
 const SocialIcon = ({ kind, href, size = 8 }) => {

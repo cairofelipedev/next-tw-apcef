@@ -13,6 +13,7 @@ import { Pagination } from 'swiper'
 import BannersItem from '@/components/BannersItem'
 import HomeBlogItem from '@/components/HomeBlogItem'
 import Footer from '@/components/Footer'
+import SocialIcon from '@/components/social-icons'
 export default function Home({ banners, news }) {
   return (
     <>
@@ -70,7 +71,7 @@ export default function Home({ banners, news }) {
                   </SwiperSlide>
                 ))}
               </Swiper>
-              <Link href="/blog">
+              <Link href="/noticias">
                 <a className="flex items-center font-extrabold text-blue-apcef">
                   Mais Notícias
                   <svg
@@ -125,69 +126,61 @@ export default function Home({ banners, news }) {
               ASSOCIE-SE
             </button>
           </div>
-          <section className="body-font pt-4">
-            <div className="h-16 space-y-2 rounded-xl bg-orange-apcef p-2 pb-2 md:space-y-2">
-              <button className="bg-grey-light hover:bg-grey text-grey-darkest inline-flex items-center rounded py-2 px-4 font-bold">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="#000000"
-                  className="bi bi-chevron-right font-bold"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                  />
-                </svg>
-                <span>EVENTOS</span>
-              </button>
+          <div className="flex items-center justify-center">
+            <div className="w-full rounded-lg border-2 border-gray-50 bg-white text-blue-apcef shadow-lg">
+              <div className="flex flex-col">
+                <div className="my-3 p-4">
+                  <div className="flex flex-row items-center space-x-4">
+                    <div id="icon">
+                      <span>
+                        <SocialIcon kind="calendar" href="#" size="5" />
+                      </span>
+                    </div>
+                    <div id="temp">
+                      <h4 className="text-xl font-bold">EVENTOS</h4>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full place-items-end border-t-2 border-gray-100 text-right"></div>
+              </div>
+              <div className="flex flex-col">
+                <div className="my-3 p-4">
+                  <div className="flex flex-row items-center space-x-4">
+                    <div id="icon">
+                      <span>
+                        <SocialIcon kind="calendar" href="#" size="5" />
+                      </span>
+                    </div>
+                    <div id="temp">
+                      <h4 className="text-xl font-bold">ANIVERSARIANTES</h4>
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full place-items-end border-t-2 border-gray-100 text-right"></div>
+              </div>
+              <div className="flex flex-col">
+                <div className="my-3 p-4">
+                  <div className="flex flex-row items-center space-x-4">
+                    <div id="icon">
+                      <span>
+                        <SocialIcon kind="calendar" href="#" size="5" />
+                      </span>
+                    </div>
+                    <div id="temp">
+                      <h4 className="text-xl font-bold">APCEF INFORMA</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="mt-4 mb-4 h-16 space-y-2 rounded-xl bg-orange-apcef p-2  md:space-y-2">
-              <button className="bg-grey-light hover:bg-grey text-grey-darkest inline-flex items-center rounded py-2 px-4 font-bold">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="#000000"
-                  className="bi bi-chevron-right font-bold"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                  />
-                </svg>
-                <span>ANIVERSARIANTES</span>
-              </button>
-            </div>
-            <div className="h-36 space-y-2 rounded-xl bg-orange-apcef p-2 pb-2 md:space-y-2">
-              <button className="bg-grey-light hover:bg-grey text-grey-darkest inline-flex items-center rounded py-2 px-4 pt-12 font-bold">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="#000000"
-                  className="bi bi-chevron-right font-bold"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                  />
-                </svg>
-                <span>APCEF INFORMA</span>
-              </button>
-            </div>
-          </section>
+          </div>
         </div>
       </div>
-      <div className="mx-auto max-w-6xl px-2 pt-4 md:grid md:grid-cols-3">
+      <div className="mx-auto max-w-7xl px-2 pt-4 md:grid md:grid-cols-3">
         <div className="col-span-2">
           <div className="space-y-2 p-2 pb-2 md:space-y-2">
             <h1 className="text-center text-3xl font-extrabold leading-9 tracking-tight text-blue-apcef  dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-left md:text-3xl md:leading-14">
-              UNIDADES DE LAZER
+              CONHEÇA NOSSA SEDE
             </h1>
           </div>
           <CarouselGalery />
@@ -304,9 +297,9 @@ export default function Home({ banners, news }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${API_URL}/api/banners`)
+  const res = await fetch(`${API_URL}/banners`)
   const banners = await res.json()
-  const res2 = await fetch(`${API_URL}/api/news`)
+  const res2 = await fetch(`${API_URL}/noticias`)
   const news = await res2.json()
   return {
     props: { banners, news: news.slice(0, 5) },

@@ -1,9 +1,9 @@
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
 import Image from 'next/image'
-import Link from './Link'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
+import Link from 'next/link'
 
 const LayoutWrapper = ({ children }) => {
   return (
@@ -14,8 +14,6 @@ const LayoutWrapper = ({ children }) => {
             <div className="flex justify-between">
               <SocialIcon kind="brazil" href="#" size="5" />
               <h1 className="text-sm text-white">Outras apcefs</h1>
-              <h1 className="ml-2 border-x-white text-sm text-white">| FENAE |</h1>
-              <h1 className="ml-2 text-sm text-white">Inscrições</h1>
             </div>
             <div className="mb-2 flex space-x-4">
               <SocialIcon kind="youtube" href={siteMetadata.youtube} size="5" />
@@ -39,7 +37,7 @@ const LayoutWrapper = ({ children }) => {
                 />
               </div>
               {typeof siteMetadata.headerTitle === 'string' ? (
-                <div className="mb-4 h-6 text-2xl font-semibold text-blue-apcef dark:text-white">
+                <div className="mb-4 h-6 text-2xl font-bold text-blue-apcef dark:text-white">
                   {siteMetadata.headerTitle}
                 </div>
               ) : (
@@ -74,11 +72,10 @@ const LayoutWrapper = ({ children }) => {
         </div>
         <div className="flex items-center justify-between sm:bg-blue-apcef">
           <div className="container mx-auto hidden max-w-6xl py-3 sm:block">
-            <Link
-              href="/"
-              className="p-1 font-medium uppercase text-white dark:text-gray-100 sm:p-4"
-            >
-              HOME
+            <Link href="/">
+              <button>
+                <span className="mr-2 text-white">HOME</span>
+              </button>
             </Link>
             <div className="group inline-block">
               <button className="inline-flex items-center rounded py-2 px-4">
@@ -93,64 +90,70 @@ const LayoutWrapper = ({ children }) => {
               </button>
               <ul className="absolute z-10 hidden rounded bg-white pt-1 shadow-md shadow-gray-300 group-hover:block dark:bg-gray-800">
                 <li>
-                  <button className="inline-flex items-center rounded py-2 px-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="12"
-                      height="12"
-                      fill="#E96708"
-                      className="bi bi-chevron-right font-bold"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                      />
-                    </svg>
-                    <h1 className="ml-2 mr-5 text-sm">MISSÃO, VISSÃO, VALORES</h1>
-                  </button>
+                  <Link href="/quem-somos">
+                    <button className="inline-flex items-center rounded py-2 px-4">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        fill="#E96708"
+                        className="bi bi-chevron-right font-bold"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                        />
+                      </svg>
+                      <h1 className="ml-2 mr-5 text-sm">MISSÃO, VISSÃO, VALORES</h1>
+                    </button>
+                  </Link>
                 </li>
                 <li>
-                  <button className="inline-flex items-center rounded py-2 px-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="12"
-                      height="12"
-                      fill="#E96708"
-                      className="bi bi-chevron-right font-bold"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                      />
-                    </svg>
-                    <h1 className="ml-2 mr-5 text-sm">DIRETORIA</h1>
-                  </button>
+                  <Link href="/diretoria">
+                    <button className="inline-flex items-center rounded py-2 px-4">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        fill="#E96708"
+                        className="bi bi-chevron-right font-bold"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                        />
+                      </svg>
+                      <h1 className="ml-2 mr-5 text-sm">DIRETORIA</h1>
+                    </button>
+                  </Link>
                 </li>
                 <li>
-                  <button className="inline-flex items-center rounded py-2 px-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="12"
-                      height="12"
-                      fill="#E96708"
-                      className="bi bi-chevron-right font-bold"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                      />
-                    </svg>
-                    <h1 className="ml-2 mr-5 text-sm">SUBSEDES</h1>
-                  </button>
+                  <Link href="/subsedes">
+                    <button className="inline-flex items-center rounded py-2 px-4">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        fill="#E96708"
+                        className="bi bi-chevron-right font-bold"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                        />
+                      </svg>
+                      <h1 className="ml-2 mr-5 text-sm">SEDES</h1>
+                    </button>
+                  </Link>
                 </li>
               </ul>
             </div>
             <div className="group inline-block">
               <button className="inline-flex items-center rounded py-2 px-4">
-                <span className="mr-1 text-white">ESPORTE</span>
+                <span className="mr-3 text-white">ESPORTES</span>
                 <svg
                   className="h-4 w-4 fill-current text-white"
                   xmlns="http://www.w3.org/2000/svg"
@@ -175,24 +178,54 @@ const LayoutWrapper = ({ children }) => {
                         d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
                       />
                     </svg>
-                    <h1 className="ml-2 mr-5 text-sm">TODAS AS MODALIDADES</h1>
+                    <Link href="/esportes">
+                      <h1 className="ml-2 mr-5 text-sm">TODAS AS MODALIDADES</h1>
+                    </Link>
+                  </button>
+                </li>
+                <li>
+                  <button className="inline-flex items-center rounded py-2 px-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12"
+                      height="12"
+                      fill="#E96708"
+                      className="bi bi-chevron-right font-bold"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                      />
+                    </svg>
+                    <Link href="/esportes/natacao">
+                      <h1 className="ml-2 mr-5 text-sm">NATAÇÃO</h1>
+                    </Link>
                   </button>
                 </li>
               </ul>
             </div>
-            <Link
-              href="#"
-              className="p-1 font-medium uppercase text-white dark:text-gray-100 sm:p-4"
-            >
-              CONHEÇA NOSSAS SEDES
+            <Link href="/subsedes" className="p-1 font-medium uppercase sm:p-4">
+              <button>
+                <span className="mr-6 text-white">CONHEÇA NOSSAS SEDES</span>
+              </button>
             </Link>
-            <Link
-              href="/blog"
-              className="p-1 font-medium uppercase text-white dark:text-gray-100 sm:p-4"
-            >
-              NOTÍCIAS
+            <Link href="/noticias" className="uppercasesm:p-4 p-1 font-medium">
+              <button>
+                <span className="mr-4 text-white">NOTÍCIAS</span>
+              </button>
             </Link>
-            <div className="group ml-14 inline-block">
+            <Link href="/nossos-espacos" className="uppercasesm:p-4 p-1 font-medium">
+              <button>
+                <span className="mr-4 text-white">FAÇA SEU EVENTO AQUI</span>
+              </button>
+            </Link>
+            <Link href="/" className="uppercasesm:p-4 p-1 font-medium">
+              <button>
+                <span className="mr-4 text-white">FENAE</span>
+              </button>
+            </Link>
+            <div className="group inline-block">
               <button className="inline-flex items-center rounded-md bg-orange-apcef py-2 px-4 font-bold text-white dark:border-gray-800">
                 ASSOCIE-SE
                 <svg
@@ -205,40 +238,44 @@ const LayoutWrapper = ({ children }) => {
               </button>
               <ul className="absolute z-10 hidden rounded bg-white pt-1 shadow-md shadow-gray-300 group-hover:block dark:bg-gray-800">
                 <li>
-                  <button className="inline-flex items-center rounded py-2 px-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="12"
-                      height="12"
-                      fill="#E96708"
-                      className="bi bi-chevron-right font-bold"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                      />
-                    </svg>
-                    <h1 className="ml-2 mr-5 text-sm">EMPREGADO CAIXA</h1>
-                  </button>
+                  <Link href="/associe-se">
+                    <button className="inline-flex items-center rounded py-2 px-4">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        fill="#E96708"
+                        className="bi bi-chevron-right font-bold"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                        />
+                      </svg>
+                      <h1 className="ml-2 mr-5 text-sm">EMPREGADO CAIXA</h1>
+                    </button>
+                  </Link>
                 </li>
                 <li>
-                  <button className="inline-flex items-center rounded py-2 px-4">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="12"
-                      height="12"
-                      fill="#E96708"
-                      className="bi bi-chevron-right font-bold"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                      />
-                    </svg>
-                    <h1 className="ml-2 mr-5 text-sm">CONTRIBUITE</h1>
-                  </button>
+                  <Link href="/associe-se">
+                    <button className="inline-flex items-center rounded py-2 px-4">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="12"
+                        height="12"
+                        fill="#E96708"
+                        className="bi bi-chevron-right font-bold"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+                        />
+                      </svg>
+                      <h1 className="ml-2 mr-5 text-sm">CONTRIBUITE</h1>
+                    </button>
+                  </Link>
                 </li>
               </ul>
             </div>
