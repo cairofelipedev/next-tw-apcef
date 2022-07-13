@@ -28,7 +28,7 @@ export default function SedeItem({ subsedes }) {
           <h2 className="title-font text-md mb-1">
             <ReactMarkdown escapeHtml={false}>{subsedes.infra}</ReactMarkdown>
           </h2>
-          <Link href={`/subsedes/${subsedes.slug}`}>
+          <Link passHref={`/subsedes/${subsedes.slug}`}>
             <button className="shadow-cla-blue mt-4 mb-4 rounded-lg bg-blue-apcef px-4 py-1 text-white drop-shadow-md hover:scale-105">
               Saiba Mais
             </button>

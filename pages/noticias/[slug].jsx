@@ -15,7 +15,12 @@ export default function SingleNews({ news }) {
         </h1>
         <div className="mb-8 mt-4 flex items-center rounded-xl p-2 shadow-md shadow-blue-200">
           <div className="mr-3">
-            <Image src={news.image ? news.image.url : 'No Image'} width="1500px" height="1000px" />
+            <Image
+              src={news.image ? news.image.url : 'No Image'}
+              width="1500px"
+              height="1000px"
+              alt={news.name}
+            />
           </div>
           <div>
             <h2 className="title-font text-md mb-1">{news.detail}</h2>

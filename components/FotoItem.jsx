@@ -10,9 +10,7 @@ export default function FotoItem({ fotos }) {
         alt="Vercel Logo"
         className="rounded-md"
       />
-      <p className="-translate-y-6 translate-x-3 text-xs font-semibold text-white sm:-translate-y-8 sm:text-base">
-        {fotos.nome}
-      </p>
+      <p className="text-black">{fotos.Nome}</p>
     </div>
   )
 }

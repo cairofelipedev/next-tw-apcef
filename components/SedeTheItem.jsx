@@ -5,7 +5,7 @@ export default function SedeTheItem({ sedethe }) {
     <Image
       width="800px"
       height="500px"
-      src={sedethe.image ? sedethe.image.url : 'No Image'}
+      src={sedethe.url ? sedethe.url : 'No Image'}
       alt="Vercel Logo"
     />
   )

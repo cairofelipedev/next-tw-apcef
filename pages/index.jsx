@@ -20,7 +20,10 @@ import Footer from '@/components/Footer'
 import SocialIcon from '@/components/social-icons'
 import FotoItem from '@/components/FotoItem'
 import SedeTheItem from '@/components/SedeTheItem'
-export default function Home({ banners, news, fotos, sedethe }) {
+
+export default function Home({ banners, news, fotos, sedethe, news2 }) {
+  const [photos] = useState(sedethe)
+
   const [thumbsSwiper, setThumbsSwiper] = useState(null)
   return (
     <>
@@ -79,22 +82,7 @@ export default function Home({ banners, news, fotos, sedethe }) {
                 ))}
               </Swiper>
               <Link href="/noticias">
-                <a className="flex items-center font-extrabold text-blue-apcef">
-                  Mais Notícias
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="#000000"
-                    className="bi bi-chevron-right font-bold"
-                    viewBox="0 0 16 16"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-                    />
-                  </svg>
-                </a>
+                <a className="flex items-center font-extrabold text-blue-apcef">Mais Notícias</a>
               </Link>
             </div>
           </section>
@@ -107,8 +95,37 @@ export default function Home({ banners, news, fotos, sedethe }) {
             </p>
           </div>
           <section className="body-font">
-            <div className="container mx-auto px-5 py-10">
-              <CarouselNews2 />
+            <div className="container mx-auto px-5 pt-4">
+              <Swiper
+                pagination={{
+                  clickable: true,
+                }}
+                breakpoints={{
+                  640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                  768: {
+                    slidesPerView: 2,
+                    spaceBetween: 40,
+                  },
+                  1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                  },
+                }}
+                modules={[Pagination]}
+                className="mySwiper"
+              >
+                {news2.map((item) => (
+                  <SwiperSlide key={item.id}>
+                    <HomeBlogItem news2={item} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+              <Link href="/noticias">
+                <a className="flex items-center font-extrabold text-blue-apcef">Mais Notícias</a>
+              </Link>
             </div>
           </section>
         </div>
@@ -197,11 +214,13 @@ export default function Home({ banners, news, fotos, sedethe }) {
             modules={[FreeMode, Thumbs]}
             className={style.mySwiper2}
           >
-            {sedethe.map((item) => (
-              <SwiperSlide key={item.id}>
-                <SedeTheItem sedethe={item} />
-              </SwiperSlide>
-            ))}
+            {photos.map((pic) =>
+              pic.images.map((pic2) => (
+                <SwiperSlide key={pic2.id}>
+                  <SedeTheItem sedethe={pic2} />
+                </SwiperSlide>
+              ))
+            )}
           </Swiper>
           <Swiper
             onSwiper={setThumbsSwiper}
@@ -213,11 +232,13 @@ export default function Home({ banners, news, fotos, sedethe }) {
             modules={[FreeMode, Navigation, Thumbs]}
             className={style.mySwiper}
           >
-            {sedethe.map((item) => (
-              <SwiperSlide key={item.id}>
-                <SedeTheItem sedethe={item} />
-              </SwiperSlide>
-            ))}
+            {photos.map((pic) =>
+              pic.images.map((pic2) => (
+                <SwiperSlide key={pic2.id}>
+                  <SedeTheItem sedethe={pic2} />
+                </SwiperSlide>
+              ))
+            )}
           </Swiper>
         </div>
         <div className="mx-auto w-full max-w-lg rounded-lg bg-white px-10 py-8 shadow-xl md:ml-8">
@@ -286,17 +307,20 @@ export async function getStaticProps() {
   const res = await fetch(`${API_URL}/banners`)
   const banners = await res.json()
 
-  const res2 = await fetch(`${API_URL}/noticias`)
+  const res2 = await fetch(`${API_URL}/noticias?tipo=apcefpi`)
   const news = await res2.json()
 
   const res3 = await fetch(`${API_URL}/fotos`)
   const fotos = await res3.json()
 
-  const res4 = await fetch(`${API_URL}/subsedes?slug=teresina`)
+  const res4 = await fetch(`${API_URL}/sedes?slug=teresina`)
   const sedethe = await res4.json()
 
+  const res5 = await fetch(`${API_URL}/noticias?tipo=fenae`)
+  const news2 = await res5.json()
+
   return {
-    props: { banners, news: news.slice(0, 5), fotos, sedethe },
+    props: { banners, news: news.slice(0, 5), fotos, sedethe, news2 },
     revalidate: 1,
   }
 }
