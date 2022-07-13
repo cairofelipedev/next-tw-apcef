@@ -130,7 +130,7 @@ const LayoutWrapper = ({ children }) => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/subsedes">
+                  <Link href="/sedes">
                     <button className="inline-flex items-center rounded py-2 px-4">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -205,7 +205,7 @@ const LayoutWrapper = ({ children }) => {
                 </li>
               </ul>
             </div>
-            <Link href="/subsedes" className="p-1 font-medium uppercase sm:p-4">
+            <Link href="/sedes" className="p-1 font-medium uppercase sm:p-4">
               <button>
                 <span className="mr-6 text-white">CONHEÇA NOSSAS SEDES</span>
               </button>

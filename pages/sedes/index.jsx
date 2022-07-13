@@ -3,14 +3,14 @@ import SedeItem from '@/components/SedeItem'
 import { API_URL } from '@/config/index'
 import Footer from '@/components/Footer'
 
-export default function Subsedes({ subsedes }) {
+export default function Subsedes({ sedes }) {
   return (
     <>
       <PageSEO title={`Subsedes - APCEF/PI`} />
       <div className="mx-auto max-w-7xl px-2 pt-4">
-        {subsedes.map((item) => (
+        {sedes.map((item) => (
           <div key={item.id}>
-            <SedeItem subsedes={item} />
+            <SedeItem sedes={item} />
           </div>
         ))}
       </div>
@@ -20,10 +20,10 @@ export default function Subsedes({ subsedes }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${API_URL}/subsedes`)
-  const subsedes = await res.json()
+  const res = await fetch(`${API_URL}/sedes`)
+  const sedes = await res.json()
   return {
-    props: { subsedes },
+    props: { sedes },
     revalidate: 1,
   }
 }
