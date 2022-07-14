@@ -16,6 +16,7 @@ import style from '@/css/CarouselHome.module.css'
 import { Pagination, FreeMode, Navigation, Thumbs } from 'swiper'
 import BannersItem from '@/components/BannersItem'
 import HomeBlogItem from '@/components/HomeBlogItem'
+import HomeBlogItem2 from '@/components/HomeBlogItem2'
 import Footer from '@/components/Footer'
 import SocialIcon from '@/components/social-icons'
 import FotoItem from '@/components/FotoItem'
@@ -119,7 +120,7 @@ export default function Home({ banners, news, fotos, sedethe, news2 }) {
               >
                 {news2.map((item) => (
                   <SwiperSlide key={item.id}>
-                    <HomeBlogItem news2={item} />
+                    <HomeBlogItem2 news2={item} />
                   </SwiperSlide>
                 ))}
               </Swiper>

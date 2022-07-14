@@ -3,10 +3,10 @@ import SedeItem from '@/components/SedeItem'
 import { API_URL } from '@/config/index'
 import Footer from '@/components/Footer'
 
-export default function Subsedes({ sedes }) {
+export default function Sedes({ sedes }) {
   return (
     <>
-      <PageSEO title={`Subsedes - APCEF/PI`} />
+      <PageSEO title={`Sedes - APCEF/PI`} />
       <div className="mx-auto max-w-7xl px-2 pt-4">
         {sedes.map((item) => (
           <div key={item.id}>

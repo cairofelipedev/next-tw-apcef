@@ -25,7 +25,7 @@ export default function Sports({ sports }) {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${API_URL}/sports`)
+  const res = await fetch(`${API_URL}/esportes`)
   const sports = await res.json()
   return {
     props: { sports },

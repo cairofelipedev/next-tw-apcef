@@ -6,7 +6,7 @@ import EspacoItem from '@/components/EspacoItem'
 export default function Espacos({ espacos }) {
   return (
     <>
-      <PageSEO title={`Quem Somos - APCEF/PI`} />
+      <PageSEO title={`Nossos Espaços - APCEF/PI`} />
       <div className="mx-auto max-w-7xl px-2 pt-4">
         <div className="grid grid-cols-2 gap-8">
           {espacos.map((item) => (

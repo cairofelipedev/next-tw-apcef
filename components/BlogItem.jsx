@@ -10,7 +10,7 @@ export default function BlogItem({ news }) {
         </div>
       </div>
       <div className="col-span-2 p-6">
-        <h1 className="title-font mb-3 text-lg font-medium">{news.name}</h1>
+        <h1 className="title-font mb-3 text-lg font-medium">{news.titulo}</h1>
         <h2 className="title-font text-md mb-1">{news.subtitulo}</h2>
         <div className="flex flex-wrap items-center ">
           <Link href={`/noticias/${news.slug}`}>

@@ -7,14 +7,14 @@ export default function EspacoItem({ espacos }) {
         {espacos.nome}
       </h1>
       <Image
-        src={espacos.image ? espacos.image.url : 'No Image'}
+        src={espacos.imagem ? espacos.imagem.url : 'No Image'}
         alt="avatar"
         width="500px"
         height="300px"
         className="rounded-md"
       />
       <h2 className="title-font mb-1 pt-4 text-lg font-semibold text-blue-apcef">
-        {espacos.detalhes}
+        <ReactMarkdown escapeHtml={false}>{espacos.detalhes}</ReactMarkdown>
       </h2>
     </>
   )

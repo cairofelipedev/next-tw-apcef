@@ -17,16 +17,16 @@ export default function SingleSports({ sports }) {
   const router = useRouter()
   return (
     <>
-      <PageSEO title={`${sports.name} - APCEF/PI`} />
+      <PageSEO title={`${sports.nome} - APCEF/PI`} />
       <div className="mx-auto max-w-7xl px-2 pt-4">
         <h1 className="text-center text-3xl font-extrabold leading-9 tracking-tight text-blue-apcef dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-left md:text-3xl md:leading-14">
-          {sports.name}
+          {sports.nome}
         </h1>
         <h2 className="title-font text-md mb-1">{sports.descricao}</h2>
         <div className="mb-8 mt-4 flex items-center rounded-xl p-2 shadow-md shadow-blue-200">
           <div className="mr-3">
             <Image
-              src={sports.image ? sports.image.url : 'No Image'}
+              src={sports.imagem ? sports.imagem.url : 'No Image'}
               alt="avatar"
               width="500px"
               height="300px"
@@ -50,7 +50,7 @@ export default function SingleSports({ sports }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(`${API_URL}/sports/`)
+  const res = await fetch(`${API_URL}/esportes/`)
   const sports = await res.json()
   const paths = sports.map((item) => ({
     params: { slug: item.slug },
@@ -62,7 +62,7 @@ export async function getStaticPaths() {
   }
 }
 export async function getStaticProps({ params: { slug } }) {
-  const res = await fetch(`${API_URL}/sports?slug=${slug}`)
+  const res = await fetch(`${API_URL}/esportes?slug=${slug}`)
   const singleSports = await res.json()
   return {
     props: {

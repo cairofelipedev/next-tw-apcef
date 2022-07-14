@@ -6,7 +6,8 @@ export default function SportItem({ sports }) {
     <div className="mb-8 mt-4 items-center rounded-xl p-2 shadow-md shadow-blue-200">
       <div className="mr-3">
         <Image
-          src={sports.image ? sports.image.url : 'No Image'}
+          className="rounded-md"
+          src={sports.imagem ? sports.imagem.url : 'No Image'}
           alt="avatar"
           width="500px"
           height="300px"
@@ -14,7 +15,7 @@ export default function SportItem({ sports }) {
       </div>
       <div>
         <h1 className="title-font mb-1 text-center text-lg font-bold uppercase text-blue-apcef">
-          {sports.name}
+          {sports.nome}
         </h1>
         <div className="flex justify-center">
           <Link href={`/esportes/${sports.slug}`}>
